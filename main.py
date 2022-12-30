@@ -1,9 +1,11 @@
 from random import randint
 from typing import Optional
+from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name: Optional[str],
            char_class: Optional[str]) -> Optional[str]:
+    """Calculates the damage done."""
     if char_class == 'warrior':
         return (f'{char_name} нанёс урон противнику равный '
                 f'{5 + randint(3, 5)}')
@@ -18,6 +20,7 @@ def attack(char_name: Optional[str],
 
 def defence(char_name: Optional[str],
             char_class: Optional[str]) -> Optional[str]:
+    """Calculates blocked damage."""
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
     if char_class == 'mage':
@@ -29,6 +32,7 @@ def defence(char_name: Optional[str],
 
 def special(char_name: Optional[str],
             char_class: Optional[str]) -> Optional[str]:
+    """Calculates a special skill."""
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение '
                 f'«Выносливость {80 + 25}»')
@@ -41,6 +45,7 @@ def special(char_name: Optional[str],
 
 def start_training(char_name: Optional[str],
                    char_class: Optional[str]) -> Optional[str]:
+    """Information output and command allocation"""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -65,6 +70,7 @@ def start_training(char_name: Optional[str],
 
 
 def choice_char_class() -> Optional[str]:
+    """Choosing a character class."""
     approve_choice: Optional[str] = None
     char_class: Optional[str] = None
     while approve_choice != 'y':
@@ -87,7 +93,9 @@ def choice_char_class() -> Optional[str]:
     return char_class
 
 
-def main() -> Optional[str]:
+if __name__ == '__main__':
+    run_screensaver()
+    """Starting a screen saver."""
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name: Optional[str] = input('...назови себя: ')
@@ -97,7 +105,3 @@ def main() -> Optional[str]:
     print('Воитель, Маг, Лекарь')
     char_class: Optional[str] = choice_char_class()
     print(start_training(char_name, char_class))
-    return None
-
-
-main()
