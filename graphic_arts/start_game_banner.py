@@ -1,3 +1,5 @@
+"""Adding animation screensaver."""
+
 from asciimatics.renderers import FigletText, Fire
 from asciimatics.renderers import SpeechBubble
 from asciimatics.scene import Scene
